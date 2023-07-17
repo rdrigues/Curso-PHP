@@ -14,9 +14,9 @@
            <?php
             $valor = $_GET ["Valor"];
             $dolar = round($valor / 4.80, 2);
-            echo "Seus <strong>$valor</strong> equivalem a US$ <strong>$dolar</strong> <br>";
+            echo "Seus <strong>R$$valor</strong> equivalem a US$ <strong>$dolar</strong> <br>";
             echo "<strong>*Cotação fixa de 4.80*</strong>";
-           
+
            ?>
            <button type="submit" name="index.php">Voltar</button>
        </form>
