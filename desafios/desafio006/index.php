@@ -25,11 +25,12 @@
     <section>
         <h2> Estrutura da Divisão </h2>
         <?php 
-            $resultado = $dividendo / $divisor;
-        
-            echo "Resultado da divisão é $resultado";
-            echo ""
-
+            $resultado = intdiv($dividendo, $divisor);
+            $resto = $dividendo % $divisor;
+            echo "Resultado da divisão é $resultado <br>";
+            echo "Seu Dividendo é $dividendo <br>";
+            echo "Seu Divisor é $divisor <br>";
+            echo "Sua sobra é $resto<br>";
 
         ?>
 
