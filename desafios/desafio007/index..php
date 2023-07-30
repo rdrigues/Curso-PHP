@@ -19,10 +19,13 @@
     <section>
         <h2>Resultado Final</h2>
         <?php
-        $salario = $_GET['slr'];
+        $salario = $_GET['slr'] ?? 0;
+        $salario2 = number_format($salario, 2, ',', '.');
         $slrmin = 1320;
-
-        echo "Quem recebe um Salário de $salario ganha"
+        $valor = intdiv($salario, $slrmin);
+        $sobra = $salario % $slrmin;
+        $sobra2 = number_format($sobra, 2, ',', '.');
+        echo "Quem recebe um Salário de R$$salario2 ganha <strong>$valor salarios minimos</strong> + R$ $sobra2.";
         ?>
     </section>
 
