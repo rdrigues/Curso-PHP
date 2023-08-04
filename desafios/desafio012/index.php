@@ -19,17 +19,18 @@
     <section>
         <h2>Totalizando tudo</h2>
         <?php 
-        $segundos = $_GET["segundos"];
-        $horas = intdiv($segundos, 3600);
-        $minutos = $segundos % 60; 
-        $segundos2 = intdiv($minutos , 60);
+        $segundos = $_GET["segundos"] ?? '1';
+        
+
+       $minutos =  intdiv ($segundos, 60) ;
+       $segundos2 = $minutos % $segundos;
          
         echo "Analizando o valor que você digitou, $segundos segundos, equivalem a um total de:";
         echo "<ul>
         
-        <li> tantas $horas </li>
-        <li> tantas $minutos </li>
-        <li> tantas $segundos2 </li>
+        <li> tantas horas </li>
+        <li> Minutos $minutos </li>
+        <li> Segundos $segundos2 </li>
         </ul>";
         
         ?>
