@@ -11,7 +11,7 @@
         <h1>Calculadora de Tempo</h1>
         <form action="<?php $_SERVER["PHP_SELF"]?>" method="get">
             <label for="segundos">Qual o total de segundos?</label>
-            <input type="number" name="segundos" id="segundos">
+            <input type="number" name="segundos" id="segundos" required value="<?php $total?>">
             <input type="submit" value="Calcular">
     
     </form>
@@ -20,17 +20,29 @@
         <h2>Totalizando tudo</h2>
         <?php 
         $segundos = $_GET["segundos"] ?? '1';
-        
+        $sobra = $segundos;
+        $semanas = (int)($sobra / 604800);
+        $sobra = $sobra % 604800;
 
-       $minutos =  intdiv ($segundos, 60) ;
-       $segundos2 = $minutos % $segundos;
-         
+        $dia = (int)($sobra / 86400);
+        $sobra = $sobra % 86400;
+
+        $horas = (int)($sobra / 3600);
+        $sobra = $sobra % 3600;
+
+        $minutos = (int)($sobra / 60);
+        $sobra = $sobra % 60;
+
+        $segundos2 = $sobra;
+
         echo "Analizando o valor que você digitou, $segundos segundos, equivalem a um total de:";
         echo "<ul>
         
-        <li> tantas horas </li>
-        <li> Minutos $minutos </li>
-        <li> Segundos $segundos2 </li>
+        <li> $semanas Semanas </li>
+        <li> $dia Dias </li>
+        <li> $horas Horas </li>
+        <li> $minutos Minutos </li>
+        <li> $segundos2 Segundos </li>
         </ul>";
         
         ?>
